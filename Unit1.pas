@@ -64,14 +64,14 @@ var
   BufLen: word;
   buf: pointer;
 begin
-  BufSize := TrackBar1.Position * 500 + 100; { Размер буфера }
+  BufSize := TrackBar1.Position * 500 + 100; { ГђГ Г§Г¬ГҐГ° ГЎГіГґГҐГ°Г  }
   Bits16 := CheckBox1.Checked;
   with header do
   begin
     wFormatTag := WAVE_FORMAT_PCM;
-    nChannels := 1; { количество каналов }
-    nSamplesPerSec := 22050; { частота }
-    wBitsPerSample := integer(Bits16) * 8 + 8; { 8 / 16 бит }
+    nChannels := 1; { ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЄГ Г­Г Г«Г®Гў }
+    nSamplesPerSec := 22050; { Г·Г Г±ГІГ®ГІГ  }
+    wBitsPerSample := integer(Bits16) * 8 + 8; { 8 / 16 ГЎГЁГІ }
     nBlockAlign := nChannels * (wBitsPerSample div 8);
     nAvgBytesPerSec := nSamplesPerSec * nBlockAlign;
     cbSize := 0;
@@ -183,7 +183,7 @@ begin
     end;
     if RESULT_MAX - RESULT_MIN > 20 then
       begin
-//        form1.Caption := inttostr(round(RESULT_MAX - RESULT_MIN)) + '; ';
+
 
         label4.Caption := inttostr( Load_Node_Array_From_Image( image1 ) );
         compare_xy_in_node;
@@ -219,13 +219,13 @@ begin
   Button1.Caption := 'Start';
   Button2.Caption := 'Stop';
   CheckBox1.Caption := '16 / 8 bit';
-  Setup_Neural_Network('Привет!');
+  Setup_Neural_Network('ГЏГ°ГЁГўГҐГІ!');
   switch := 0;
   label2.Caption := inttostr(switch);
 end;
 
-// AVal - массив анализируемых данных, Nvl - длина массива, должна быть кратна степени 2.
-// FTvl - массив полученных значений, Nft - длина массива, должна быть равна Nvl / 2 или меньше.
+// AVal - Г¬Г Г±Г±ГЁГў Г Г­Г Г«ГЁГ§ГЁГ°ГіГҐГ¬Г»Гµ Г¤Г Г­Г­Г»Гµ, Nvl - Г¤Г«ГЁГ­Г  Г¬Г Г±Г±ГЁГўГ , Г¤Г®Г«Г¦Г­Г  ГЎГ»ГІГј ГЄГ°Г ГІГ­Г  Г±ГІГҐГЇГҐГ­ГЁ 2.
+// FTvl - Г¬Г Г±Г±ГЁГў ГЇГ®Г«ГіГ·ГҐГ­Г­Г»Гµ Г§Г­Г Г·ГҐГ­ГЁГ©, Nft - Г¤Г«ГЁГ­Г  Г¬Г Г±Г±ГЁГўГ , Г¤Г®Г«Г¦Г­Г  ГЎГ»ГІГј Г°Г ГўГ­Г  Nvl / 2 ГЁГ«ГЁ Г¬ГҐГ­ГјГёГҐ.
 
 type
   TArrayValues = array of Double;
@@ -298,7 +298,7 @@ begin
  switch := 1 else
  begin
    switch := 0;
-   label6.Caption := inttostr( delete_broken_node ); // при переходе с единицы на ноль удаляем сломанные ноды
+   label6.Caption := inttostr( delete_broken_node ); // ГЇГ°ГЁ ГЇГҐГ°ГҐГµГ®Г¤ГҐ Г± ГҐГ¤ГЁГ­ГЁГ¶Г» Г­Г  Г­Г®Г«Гј ГіГ¤Г Г«ГїГҐГ¬ Г±Г«Г®Г¬Г Г­Г­Г»ГҐ Г­Г®Г¤Г»
  end;
 
  timer1.Enabled := false;
